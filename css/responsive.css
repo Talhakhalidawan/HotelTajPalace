@@ -100,6 +100,9 @@
 
 /* For screens smaller than 768px */
 @media screen and (max-width: 768px) {
+    .dropdown.show .dropdown-menu, .dropdown-menu.show {
+        position: absolute;
+    }
     body {
         font-size: 15px;
     }
@@ -131,6 +134,7 @@
         position: relative;
         height: 25px;
         width: 30px;
+        z-index: 1001; /* Higher z-index to stay above fullscreen nav */
     }
     
     .nav-toggle-label span,
@@ -162,37 +166,65 @@
         top: 8px;
     }
     
+    /* Fullscreen mobile navigation - Modern style */
     nav {
-        position: absolute;
-        top: 100%;
+        position: fixed; /* Changed from absolute to fixed */
+        top: 0;
         left: 0;
-        background: var(--white);
-        width: 100%;
-        transform: scale(1, 0);
-        transform-origin: top;
-        transition: transform 0.3s ease;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        z-index: 999;
+        right: 0;
+        bottom: 0; /* Full height */
+        background-color: rgb(255, 255, 255); /* Semitransparent secondary color */
+        width: 101%;
+        max-width: 100%;
+        height: 100vh; /* Full viewport height */
+        transform: translateX(-100%); /* Slide in from left */
+        transition: transform 0.4s ease;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
     }
     
     .nav-menu {
         flex-direction: column;
-        gap: 0;
+        gap: 30px; /* Increased spacing between items */
+        width: 100%;
+        text-align: center; /* Center alignment */
+        padding: 40px 20px;
     }
     
     .nav-menu li {
         width: 100%;
+        margin-bottom: 10px;
     }
     
+    /* Modern bold links for mobile */
     .nav-menu li a {
-        padding: 15px 30px;
-        display: block;
+        padding: 12px 0; /* Vertical padding only */
+        display: inline-block; /* Changed from block to inline-block */
         opacity: 0;
         transition: opacity 0.15s ease;
+        font-size: 24px; /* Larger font for modern look */
+        font-weight: 600; /* Bold text */
+        color: black; /* White text on dark background */
+        letter-spacing: 1px;
+    }
+
+    .nav-menu li a:hover, 
+    .nav-menu li.active a {
+        color: var(--primary-color);
+    }
+
+    /* Show active state with underline only under text */
+    .nav-menu li.active a::after {
+        width: 100%; /* Full width of text only since we're using inline-block */
     }
     
+    /* Show navigation when toggled */
     .nav-toggle:checked ~ nav {
-        transform: scale(1, 1);
+        transform: translateX(0); /* Slide in */
+        opacity: 1;
     }
     
     .nav-toggle:checked ~ nav a {
@@ -207,40 +239,64 @@
     .nav-toggle:checked ~ .nav-toggle-label span::before {
         transform: rotate(45deg);
         bottom: 0;
+        background-color: var(--white); /* White hamburger when menu is open */
     }
     
     .nav-toggle:checked ~ .nav-toggle-label span::after {
         transform: rotate(-45deg);
         top: 0;
+        background-color: var(--white); /* White hamburger when menu is open */
     }
     
-    /* Dropdown in mobile view */
+    /* Bootstrap dropdown styling for mobile */
     .dropdown-menu {
-        position: relative;
+        position: static; /* Not absolute */
         width: 100%;
-        transform: translateY(0);
-        opacity: 0;
-        visibility: hidden;
-        height: 0;
         box-shadow: none;
-        transition: all 0.3s;
+        background-color: transparent;
+        border: none;
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        transform: none;
+        transition: max-height 0.3s ease, visibility 0.3s ease;
+        text-align: center;
+        margin-top: 5px;
         padding: 0;
-    }
-    
-    .dropdown.active .dropdown-menu {
         opacity: 1;
-        visibility: visible;
-        height: auto;
     }
     
-    .dropdown-toggle {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .dropdown-toggle i {
+        transition: transform 0.3s ease;
+    }
+    
+    .dropdown.show .dropdown-toggle i {
+        transform: rotate(180deg);
+    }
+    
+    .dropdown.show .dropdown-menu,
+    .dropdown-menu.show {
+        max-height: 400px; /* Adjust as needed */
+        visibility: visible;
+        display: block;
+        padding: 10px 0;
+        margin-top: 15px;
+        border-radius: 8px;
     }
     
     .dropdown-menu li a {
-        padding-left: 50px;
+        padding: 12px 0;
+        font-size: 18px; /* Slightly smaller than main links */
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.9);
+        border-left: none;
+    }
+    
+    .dropdown-menu li a:hover,
+    .dropdown-menu li.active a {
+        background-color: transparent;
+        color: var(--primary-color);
+        border-left: none;
     }
     
     /* Header top */
@@ -395,14 +451,7 @@
 
 /* Adding a CSS-only dropdown solution for mobile */
 @media screen and (max-width: 768px) {
-    .nav-menu .dropdown > a::after {
-        content: '\f107';
-        font-family: 'Font Awesome 6 Free';
-        font-weight: 900;
-        position: absolute;
-        right: 30px;
-        transition: transform 0.3s;
-    }
+
     
     .nav-menu .dropdown.active > a::after {
         transform: rotate(180deg);
