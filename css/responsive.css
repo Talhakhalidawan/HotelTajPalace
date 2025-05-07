@@ -239,13 +239,13 @@
     .nav-toggle:checked ~ .nav-toggle-label span::before {
         transform: rotate(45deg);
         bottom: 0;
-        background-color: var(--white); /* White hamburger when menu is open */
+        background-color: black; /* White hamburger when menu is open */
     }
     
     .nav-toggle:checked ~ .nav-toggle-label span::after {
         transform: rotate(-45deg);
         top: 0;
-        background-color: var(--white); /* White hamburger when menu is open */
+        background-color: black; /* White hamburger when menu is open */
     }
     
     /* Bootstrap dropdown styling for mobile */
