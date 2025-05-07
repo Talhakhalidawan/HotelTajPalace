@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Reservation - HOTEL TAJ PALACE</title>
+    <meta name="description" content="Cancel your reservation at HOTEL TAJ PALACE in Sialkot, Pakistan. Easy and convenient cancellation process.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="contact-info">
+                    <div><i class="fas fa-phone"></i> +(92) 52 4265048, 4274831, 4270034</div>
+                    <div><i class="fas fa-envelope"></i> info@taj.com.pk</div>
+                    <div><i class="fas fa-map-marker-alt"></i> Kutchery Road, Sialkot-Pakistan</div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-container">
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <h1>HOTEL TAJ PALACE</h1>
+                    </div>
+                    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                    <label for="nav-toggle" class="nav-toggle-label">
+                        <span></span>
+                    </label>
+                    <nav>
+                        <ul class="nav-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle">Reservation <i class="fa fa-chevron-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="reservation.html">Make Reservation</a></li>
+                                    <li class="active"><a href="cancel-reservation.html">Cancel Reservation</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Cancel Reservation</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <span>Cancel Reservation</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="cancel-intro">
+        <div class="container">
+            <div class="section-title centered">
+                <h2>Cancel Your Reservation</h2>
+                <div class="separator center"></div>
+                <p>We understand that plans can change. Use the form below to cancel your existing reservation. Please note our cancellation policy before proceeding.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cancellation-policy">
+        <div class="container">
+            <div class="policy-box">
+                <h3><i class="fas fa-info-circle"></i> Cancellation Policy</h3>
+                <ul>
+                    <li>Cancellations must be made at least 48 hours prior to your scheduled arrival date to receive a full refund.</li>
+                    <li>Cancellations made within 48 hours of arrival date will incur a charge equivalent to one night's stay.</li>
+                    <li>For reservations during peak season or special events, cancellations must be made 72 hours in advance.</li>
+                    <li>No-shows will be charged for the entire reservation amount.</li>
+                    <li>Any refunds due will be processed within 7-10 business days.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="cancellation-form">
+        <div class="container">
+            <div class="form-container">
+                <form action="#" method="post" class="cancel-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="reservation-number">Reservation Number</label>
+                            <input type="text" id="reservation-number" name="reservation-number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="reason">Reason for Cancellation</label>
+                            <select id="reason" name="reason" required>
+                                <option value="">Select a Reason</option>
+                                <option value="change-plans">Change of Plans</option>
+                                <option value="emergency">Emergency</option>
+                                <option value="travel-issues">Travel Issues</option>
+                                <option value="booking-error">Booking Error</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="comments">Additional Comments</label>
+                            <textarea id="comments" name="comments" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="confirmation-check">
+                        <input type="checkbox" id="confirm-cancel" name="confirm-cancel" required>
+                        <label for="confirm-cancel">I confirm that I want to cancel my reservation and I understand the cancellation policy.</label>
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary">Cancel Reservation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="alternative-options">
+        <div class="container">
+            <div class="section-title centered">
+                <h2>Other Options</h2>
+                <div class="separator center"></div>
+            </div>
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Reschedule Your Stay</h3>
+                    <p>Instead of cancelling, would you prefer to change your reservation dates? Contact our reservations team to check availability for alternative dates.</p>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Convert to Gift Voucher</h3>
+                    <p>You can convert your reservation into a gift voucher that can be used within the next 12 months for any stay or service at our hotel.</p>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need Assistance?</h2>
+                <p>Our reservations team is available to help with any questions about your cancellation.</p>
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>HOTEL TAJ PALACE</h3>
+                    <p>One of the Best Hotels in Sialkot City</p>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> Kutchery Road, Sialkot-Pakistan</p>
+                        <p><i class="fas fa-phone"></i> +(92) 52 4265048, 4274831, 4270034</p>
+                        <p><i class="fas fa-envelope"></i> info@taj.com.pk</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="reservation.html">Reservation</a></li>
+                        <li><a href="cancel-reservation.html">Cancel Reservation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Hotel Taj Palace. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,440 @@
+/* 
+   Responsive Stylesheet for Hotel Taj Palace
+   Author: AI Developer
+   Version: 1.0
+*/
+
+/* ===============================
+   Media Queries
+   =============================== */
+
+/* For screens smaller than 1200px */
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+        padding: 0 30px;
+    }
+    
+    .rooms-grid,
+    .facilities-grid,
+    .values-grid,
+    .features-grid,
+    .contact-info-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* For screens smaller than 992px */
+@media screen and (max-width: 992px) {
+    h1 {
+        font-size: 36px;
+    }
+    
+    h2 {
+        font-size: 30px;
+    }
+    
+    .navbar {
+        padding: 15px 0;
+    }
+    
+    .logo h1 {
+        font-size: 24px;
+    }
+    
+    .rooms-grid,
+    .testimonial-grid,
+    .mission-vision-grid,
+    .team-grid,
+    .gallery-grid,
+    .faq-grid,
+    .policy-grid,
+    .options-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .facilities-grid,
+    .values-grid,
+    .features-grid,
+    .contact-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .welcome-content,
+    .about-content,
+    .contact-content {
+        flex-direction: column;
+    }
+    
+    .welcome-text,
+    .welcome-image,
+    .about-text,
+    .about-image,
+    .contact-form,
+    .contact-image {
+        width: 100%;
+    }
+    
+    .contact-image {
+        margin-bottom: 40px;
+    }
+    
+    .welcome-image {
+        order: -1;
+        margin-bottom: 30px;
+    }
+    
+    .about-image {
+        order: -1;
+        margin-bottom: 30px;
+    }
+    
+    .hero-content h1 {
+        font-size: 42px;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* For screens smaller than 768px */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    h1 {
+        font-size: 32px;
+    }
+    
+    h2 {
+        font-size: 26px;
+    }
+    
+    .btn {
+        padding: 10px 25px;
+        font-size: 13px;
+    }
+    
+    /* Navigation */
+    .nav-container {
+        position: relative;
+    }
+    
+    .nav-toggle-label {
+        display: block;
+        position: relative;
+        height: 25px;
+        width: 30px;
+    }
+    
+    .nav-toggle-label span,
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        display: block;
+        background: var(--secondary-color);
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-toggle-label span {
+        top: 11px;
+    }
+    
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        content: '';
+    }
+    
+    .nav-toggle-label span::before {
+        bottom: 8px;
+    }
+    
+    .nav-toggle-label span::after {
+        top: 8px;
+    }
+    
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--white);
+        width: 100%;
+        transform: scale(1, 0);
+        transform-origin: top;
+        transition: transform 0.3s ease;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+    }
+    
+    .nav-menu li a {
+        padding: 15px 30px;
+        display: block;
+        opacity: 0;
+        transition: opacity 0.15s ease;
+    }
+    
+    .nav-toggle:checked ~ nav {
+        transform: scale(1, 1);
+    }
+    
+    .nav-toggle:checked ~ nav a {
+        opacity: 1;
+        transition: opacity 0.25s ease 0.15s;
+    }
+    
+    .nav-toggle:checked ~ .nav-toggle-label span {
+        background: transparent;
+    }
+    
+    .nav-toggle:checked ~ .nav-toggle-label span::before {
+        transform: rotate(45deg);
+        bottom: 0;
+    }
+    
+    .nav-toggle:checked ~ .nav-toggle-label span::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+    
+    /* Dropdown in mobile view */
+    .dropdown-menu {
+        position: relative;
+        width: 100%;
+        transform: translateY(0);
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+        box-shadow: none;
+        transition: all 0.3s;
+        padding: 0;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        height: auto;
+    }
+    
+    .dropdown-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .dropdown-menu li a {
+        padding-left: 50px;
+    }
+    
+    /* Header top */
+    .header-top {
+        display: none;
+    }
+    
+    /* Hero section */
+    .hero {
+        height: 500px;
+    }
+    
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    
+    .hero-content p {
+        font-size: 18px;
+    }
+    
+    /* Grid sections */
+    .rooms-grid,
+    .facilities-grid,
+    .testimonial-grid,
+    .mission-vision-grid,
+    .values-grid,
+    .team-grid,
+    .features-grid,
+    .gallery-grid,
+    .faq-grid,
+    .contact-info-grid,
+    .policy-grid,
+    .options-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* For screens smaller than 576px */
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    
+    h3 {
+        font-size: 20px;
+    }
+    
+    .section-title {
+        margin-bottom: 30px;
+    }
+    
+    .hero {
+        height: 400px;
+    }
+    
+    .hero-content h1 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+    
+    .hero-content p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .page-header {
+        padding: 40px 0;
+    }
+    
+    .welcome, .rooms, .facilities, .testimonials, 
+    .about-intro, .mission-vision, .values, .team, 
+    .hotel-features, .gallery, .contact-info-section, 
+    .contact-form-section, .map-section, .faq-section, 
+    .booking-form, .reservation-policy, .alternative-options {
+        padding: 50px 0;
+    }
+    
+    .facility-item, .value-item, .feature, .contact-card, .policy-item {
+        padding: 20px;
+    }
+    
+    .form-container, .mission-box, .vision-box, 
+    .testimonial-card, .faq-item, .option-card {
+        padding: 25px;
+    }
+    
+    .room-image {
+        height: 200px;
+    }
+    
+    .room-info {
+        padding: 20px;
+    }
+    
+    .policy-box {
+        padding: 20px;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+}
+
+/* CSS for Dropdown activation in mobile without JS */
+@media screen and (max-width: 768px) {
+    .dropdown-toggle:focus + .dropdown-menu,
+    .dropdown-toggle:active + .dropdown-menu,
+    .dropdown-menu:hover {
+        opacity: 1;
+        visibility: visible;
+        height: auto;
+    }
+    
+    .nav-menu {
+        padding: 0;
+    }
+    
+    .nav-menu > li > a {
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .dropdown-toggle {
+        position: relative;
+    }
+    
+    .dropdown-toggle .fa-chevron-down {
+        transition: transform 0.3s;
+    }
+    
+    .dropdown.active .fa-chevron-down {
+        transform: rotate(180deg);
+    }
+}
+
+/* Adding a CSS-only dropdown solution for mobile */
+@media screen and (max-width: 768px) {
+    .nav-menu .dropdown > a::after {
+        content: '\f107';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        right: 30px;
+        transition: transform 0.3s;
+    }
+    
+    .nav-menu .dropdown.active > a::after {
+        transform: rotate(180deg);
+    }
+    
+    .dropdown-toggle {
+        pointer-events: none;
+    }
+    
+    .dropdown {
+        position: relative;
+    }
+    
+    .dropdown-menu {
+        display: none;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    /* This will need JavaScript to toggle .active class,
+       But since we're limited to CSS only, we'll use the :target pseudo-class as a workaround */
+    
+    .nav-menu .dropdown:target .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        height: auto;
+    }
+    
+    .nav-toggle:checked ~ nav .dropdown:target > a::after {
+        transform: rotate(180deg);
+    }
+}
